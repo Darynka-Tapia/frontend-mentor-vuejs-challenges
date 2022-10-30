@@ -39,7 +39,10 @@
 
   const isViewDefault = ref(true);
   function submit(){
-    console.log('debes seleccionar las estrellas');
+    if(ratingSelected.value === 0){
+      alert('Select the number of stars');
+      return 
+    }
     isViewDefault.value = false;
   }
 </script>

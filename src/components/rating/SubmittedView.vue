@@ -49,10 +49,12 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      color: var(--rating-white);
     }
   
-    .card {
-      color: var(--rating-white);
+    .card .icon img{
+        width: 162px;
+        height: 108px;
     }
     .card .number-of-stars{
         margin-top: 10px;
