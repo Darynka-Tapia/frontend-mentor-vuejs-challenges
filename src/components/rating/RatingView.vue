@@ -64,7 +64,11 @@
     align-items: center;
   }
   .card{
-    width: 390px;
+    width: 100%;
+    max-width: 390px;
+    min-width: 200px;
+    margin: 0 20px;
+    box-sizing: border-box;
     height: auto;
     background-color: var(--rating-dark-blue);
     border-radius: 20px;

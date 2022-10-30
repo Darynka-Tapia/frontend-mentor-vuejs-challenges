@@ -39,17 +39,19 @@
       align-items: center;
     }
     .card{
-      width: 390px;
-      height: auto;
-      background-color: var(--rating-dark-blue);
-      border-radius: 20px;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--rating-white);
+        width: 100%;
+        max-width: 390px;
+        min-width: 200px;
+        margin: 0 20px;      height: auto;
+        background-color: var(--rating-dark-blue);
+        border-radius: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--rating-white);
     }
   
     .card .icon img{
