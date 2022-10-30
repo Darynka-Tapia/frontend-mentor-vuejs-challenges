@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="isViewDefault">
     <div class="card">
       <div class="icon">
         <img :src="startIcon" alt="">
@@ -7,19 +7,41 @@
       <h2>How did we do?</h2>
       <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
       <div class="rating">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
+        <div
+          v-for="item in ratingList"
+          :key="item"
+          class="item"
+          :class="{'active': ratingSelected === item}"
+          @click="selectRating(item)"
+        >
+          {{ item }}
+        </div>
       </div>
-      <button>Submit</button>
+      <button @click="submit()">Submit</button>
     </div>
   </div>
+  <SubmittedView 
+    v-else
+    :rating="ratingSelected" 
+  /> <!-- -->
 </template>
 
 <script setup>
+  import { ref } from 'vue';
   import startIcon from '@/components/img/rating/icon-star.svg';
+  import SubmittedView from '@/components/rating/SubmittedView.vue';
+
+  const ratingList = ref([1,2,3,4,5]);
+  const ratingSelected = ref(0);
+  function selectRating(item){
+    ratingSelected.value = item;
+  }
+
+  const isViewDefault = ref(true);
+  function submit(){
+    console.log('debes seleccionar las estrellas');
+    isViewDefault.value = false;
+  }
 </script>
 
 <style scoped>
@@ -86,6 +108,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    cursor:pointer;
+  }
+  .rating .item:hover{
+    background-color: var(--rating-light-grey);
+  }
+  .rating .item.active{
+    background-color: var(--rating-orange);
   }
 
   button{
@@ -98,5 +127,10 @@
     color: var(--rating-white);
     text-transform: uppercase;
     font-weight: 700;
+    cursor: pointer;
+  }
+  button:hover{
+    color: var(--rating-orange);
+    background-color: var(--rating-white);
   }
 </style>
