@@ -4,7 +4,7 @@ import NotFound from '../views/404View.vue';
 
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     
     {path:'/404', component: NotFound },
